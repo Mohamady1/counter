@@ -1,6 +1,6 @@
 # counter
 
-A new Flutter project.
+Counter App for Stateful widget practice
 
 ## Getting Started
 
