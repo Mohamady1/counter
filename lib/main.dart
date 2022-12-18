@@ -11,18 +11,27 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _counter = 0;
+  var color = Colors.white;
 
   void plus() => {
         setState(() {
           _counter++;
+          if (_counter > 0) {
+            color = Colors.white;
+          }
         })
       };
 
-  void minus() => {
-        setState(() {
-          if (_counter > 0) _counter--;
-        })
-      };
+  void minus() {
+    setState(() {
+      if (_counter > 0) {
+        _counter--;
+        color = Colors.white;
+      } else {
+        color = Color.fromARGB(255, 255, 17, 0);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +56,7 @@ class _MyAppState extends State<MyApp> {
               Container(
                   margin: EdgeInsets.all(15),
                   child: Text("Your Number Now is $_counter",
-                      style: TextStyle(color: Colors.white, fontSize: 25))),
+                      style: TextStyle(color: color, fontSize: 25))),
               IconButton(
                   onPressed: plus,
                   icon: Icon(Icons.add_circle, color: Colors.white)),
